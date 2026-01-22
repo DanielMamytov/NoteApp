@@ -14,6 +14,7 @@ import com.example.noteapp.ui.App
 class NoteDetailFragment : Fragment() {
 
     private lateinit var binding: FragmentNoteDetailBinding
+    private var noteId: Int = -1
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -25,7 +26,20 @@ class NoteDetailFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        updateNote()
         setUpListeners()
+    }
+
+    private fun updateNote() {
+        arguments?.let { args->
+            noteId = args.getInt("noteId", -1)
+
+        }
+        if(noteId !=-1){
+            val model = App.appDatabase?.noteDao()?.getNoteById(noteId)
+            binding.etTitle.setText(model?.title)
+            binding.etDescription.setText(model?.description)
+        }
     }
 
     private fun setUpListeners() {
@@ -33,7 +47,13 @@ class NoteDetailFragment : Fragment() {
             btnSave.setOnClickListener {
                 val title: String = etTitle.text.toString()
                 val description: String = etDescription.text.toString()
-                App.appDatabase?.noteDao()?.insertNote(NoteModel(title,description))
+                if (noteId != -1){
+                    val updateNote = NoteModel(title,description)
+                    updateNote.id = noteId
+                    App.appDatabase?.noteDao()?.updateNote(updateNote)
+                }else{
+                    App.appDatabase?.noteDao()?.insertNote(NoteModel(title,description))
+                }
                 findNavController().navigateUp()
             }
         }
