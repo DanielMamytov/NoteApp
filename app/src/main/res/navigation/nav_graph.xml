@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph.xml"
-    app:startDestination="@id/noteFragment">
+    app:startDestination="@id/fragmentAuthentication">
 
     <fragment
         android:id="@+id/onBoardFragment"
@@ -31,9 +31,14 @@
         android:label="fragment_note_detail"
         tools:layout="@layout/fragment_note_detail" >
         <argument
-            android:name="noteId"
+            android:name="noteModelID"
             app:argType="integer" />
     </fragment>
+    <fragment
+        android:id="@+id/fragmentAuthentication"
+        android:name="com.example.noteapp.ui.fragments.auth.FragmentAuthentication"
+        android:label="fragment_authentication"
+        tools:layout="@layout/fragment_authentication" />
 
 
 </navigation>

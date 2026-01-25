@@ -19,12 +19,11 @@ interface NoteDao {
     fun getAll(): LiveData<List<NoteModel>>
 
     @Delete
-    fun delete(noteModel:NoteModel)
+    fun delete(noteModel: NoteModel)
 
     @Update
     fun updateNote(noteModel: NoteModel)
 
     @Query("SELECT * FROM note WHERE id = :id")
-    fun getNoteById(id: Int): NoteModel?
-
+    fun getNoteById(id: Int): NoteModel
 }

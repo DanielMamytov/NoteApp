@@ -14,7 +14,7 @@ import com.example.noteapp.ui.App
 class NoteDetailFragment : Fragment() {
 
     private lateinit var binding: FragmentNoteDetailBinding
-    private var noteId: Int = -1
+    private var noteId: Int =-1
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -32,10 +32,10 @@ class NoteDetailFragment : Fragment() {
 
     private fun updateNote() {
         arguments?.let { args->
-            noteId = args.getInt("noteId", -1)
-
+            noteId = args.getInt("noteModelID", -1)
         }
-        if(noteId !=-1){
+
+        if (noteId != -1){
             val model = App.appDatabase?.noteDao()?.getNoteById(noteId)
             binding.etTitle.setText(model?.title)
             binding.etDescription.setText(model?.description)
@@ -48,7 +48,7 @@ class NoteDetailFragment : Fragment() {
                 val title: String = etTitle.text.toString()
                 val description: String = etDescription.text.toString()
                 if (noteId != -1){
-                    val updateNote = NoteModel(title,description)
+                    val updateNote = NoteModel(title, description)
                     updateNote.id = noteId
                     App.appDatabase?.noteDao()?.updateNote(updateNote)
                 }else{
