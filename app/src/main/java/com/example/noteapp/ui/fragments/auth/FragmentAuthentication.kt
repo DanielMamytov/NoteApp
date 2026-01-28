@@ -18,7 +18,6 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 import kotlinx.coroutines.launch
 
-
 class FragmentAuthentication : Fragment() {
 
     private lateinit var binding: FragmentAuthenticationBinding
