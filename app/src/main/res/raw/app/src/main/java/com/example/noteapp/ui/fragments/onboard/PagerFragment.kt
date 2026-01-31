@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.noteapp.R
+import com.example.noteapp.databinding.FragmentOnBoardBinding
 import com.example.noteapp.databinding.FragmentPagerBinding
 
 class PagerFragment : Fragment() {
@@ -20,13 +21,15 @@ class PagerFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-         binding = FragmentPagerBinding.inflate(inflater,container,false)
+        binding = FragmentPagerBinding.inflate(inflater,container,false)
         return  binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initialize()
+
+
     }
 
     private fun initialize() = with(binding) {

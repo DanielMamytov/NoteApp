@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#252525"
+    tools:context=".ui.fragments.onboard.OnBoardFragment">
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <TextView
+        android:id="@+id/text_skip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="15dp"
+        android:text="Пропустить"
+        android:fontFamily="@font/poppins_regular"
+        android:textStyle="bold"
+        android:layout_gravity="end|top"
+        android:textColor="#D88B02"
+        android:textSize="20sp"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/buttonStart"
+        android:layout_width="200dp"
+        android:layout_height="65dp"
+        android:backgroundTint="#D88B02"
+        android:text="Начать"
+        app:cornerRadius="15dp"
+        android:fontFamily="@font/roboto_bold"
+        android:layout_gravity="bottom|center"
+        android:textSize="20sp"
+        android:layout_marginBottom="30dp"
+        android:textColor="@color/white"/>
+
+</FrameLayout>
